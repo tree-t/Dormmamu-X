@@ -1,0 +1,7 @@
+Day 1:
+1. Created this repo 
+2. Retrieved previous work on SLUX
+3. Finalized a logo for SLUX
+4. Tested SLUX-TEST.ISO(just to find, that it didn't have an init.
+Day 2:
+1. Tried different methods and found that dumb-init can create a file /usr/sbin/init (needed to boot the system)

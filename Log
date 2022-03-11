@@ -5,3 +5,7 @@ Day 1:
 4. Tested SLUX-TEST.ISO(just to find, that it didn't have an init.
 Day 2:
 1. Tried different methods and found that dumb-init can create a file /usr/sbin/init (needed to boot the system)
+Day 3:
+1. Found out that dumb-init wasn't needed, just that the initramfs couldn't just see /usr/sbin/init(sybolic link to /usr/lib/systemd/systemd).
+2. Removed the booting issue with help from Tomas M(https://github.com/tomas-m/linux-live/issues/200).
+Day 4:

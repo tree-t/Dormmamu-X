@@ -9,3 +9,6 @@ Day 3:
 1. Found out that dumb-init wasn't needed, just that the initramfs couldn't just see /usr/sbin/init(sybolic link to /usr/lib/systemd/systemd).
 2. Removed the booting issue with help from Tomas M(https://github.com/tomas-m/linux-live/issues/200).
 Day 4:
+1. Finalized a logo for SLUX (the previous one didn't look nice on the boot screen)
+2. Made the initrd look for SLUX data in /slux (previously it was /slax)
+Day 5:

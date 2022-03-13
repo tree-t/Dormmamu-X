@@ -1,4 +1,4 @@
-S.L.U.X. - `Small Live Unsupported Linux`
+#S.L.U.X. - `Small Live Unsupported Linux`
 (The name is subject to change [that is, it may turn to `Small Live Unbloated Linux`])
 
 A small distro derived from source code of S.L.A.X.(based on debian).

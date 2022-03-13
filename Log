@@ -14,6 +14,6 @@
 # Day 5 (12/03/2022):
 1. Reduced the size of 001-debootstrap.sb(future 01-core.sb) by 50mb (although logging failure still persists).
 # Day 6 (13/03/2022):
-1. Achievement! SLUX beta - core(no ui) version created(although it is still called alpha, as exept me no one has tested it).!
+1. Achievement! SLUX beta - core(no ui) version created(although it is still called alpha, as exept me no one has tested it).
 2. Although the Graphical(ui) version can take one or two more days....
 3. Logging failure solved!

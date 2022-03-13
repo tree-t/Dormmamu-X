@@ -14,3 +14,5 @@ Day 4 (11/03/2022):
 Day 5 (12/03/2022):
 1. Reduced the size of 001-debootstrap.sb(future 01-core.sb) by 50mb (although logging failure still persists).
 Day 6 (13/03/2022):
+1. Achievement! SLUX stable-core(no ui) version created!
+2. Although the Graphical(ui) version can take one or two more days....

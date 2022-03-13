@@ -12,3 +12,5 @@ Day 4:
 1. Finalized a logo for SLUX (the previous one didn't look nice on the boot screen)
 2. Made the initrd look for SLUX data in /slux (previously it was /slax)
 Day 5:
+1. Reduced the size of 001-debootstrap.sb(future 01-core.sb) by 50mb (although logging failure still persists).
+Day 6:

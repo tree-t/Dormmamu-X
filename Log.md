@@ -7,7 +7,7 @@
 
 ## 3. Selected a logo for SLUX
 
-## 4. Tested SLUX-TEST.ISO(just to find, that it didn't have an init.
+## 4. Tested SLUX-TEST.ISO(just to find, that it didn't have an init).
 
 
 # Day 2 (09/03/2022):

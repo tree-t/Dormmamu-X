@@ -1,5 +1,5 @@
 <head>
-<title>S.L.U.X. - `Small Live Unsupported Linux`<title>
+<title>S.L.U.X. - `Small Live Unsupported Linux`</title>
 <center><h1>S.L.U.X. - `Small Live Unsupported Linux`</h1></center>
 <center>
 The name is subject to change (that is, it may turn to `Small Live Unbloated Linux`)

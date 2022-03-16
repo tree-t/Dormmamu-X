@@ -3,8 +3,8 @@
 <center>
 SLUX/ (current dir)
   
-  |-- DOC/ (mostly has the license files inherited from [livekit/DOC](https://www.github.com/tomas-m/linux-live/DOC/)
-  
+  |-- DOC/ (mostly has the license files inherited from [livekit/DOC](https://www.github.com/tomas-m/linux-live/DOC/))
+
   |-- rootcopy/
 </center>
 

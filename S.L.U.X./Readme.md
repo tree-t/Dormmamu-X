@@ -4,7 +4,7 @@
 
 <p> 
 <div style="line-height:17.0pt;font-family:monospace;">
-<span style="color:#C0504D"><b>S.L.U.X.</b></span><br>
+<span style="color:#228B"><b>S.L.U.X.</b></span><br>
 <span style="color:#BFBFBF">├───</span> <b><span style="color:#C0504D">boot</span></b><br>
 <span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;├───</span> <i>isolinux.bin</i><br>
 <span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;├───</span> <i>syslinux.cfg</i><br>

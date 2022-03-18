@@ -49,4 +49,8 @@
 
 ## 4. Cancelled uploading slux-beta.iso, as wpa_supplicant and my other apps are still missing in it. :(
 # Day 7 (14/3/2022) - Day 10 (17/3/2022)
-No progress.
+
+## No progress.
+
+# Day 11 (18/3/2022)
+## Developed /usr/bin/slux, which will be tested on Day 12

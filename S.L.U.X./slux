@@ -1,0 +1,370 @@
+#!/bin/bash
+# Originally made for Slax management and control script
+# Original Author: Tomas M <http://www.slax.org/>
+# Now this edited is being used as S.L.U.X. management and control script
+# Edited by: Tree T <https://www.tree-t.github.io/S.L.U.X./>
+# Functions:
+# activate
+# deactivate
+# list
+# sb2dir
+# rmsbdir
+# sb
+# dir2sb
+# genslaxiso
+# savechanges
+
+LIVE=/run/initramfs/memory
+RAMSTORE=$LIVE/modules
+# Print error message and exit
+# $1 = error message
+#
+die()
+{
+   echo "$1" >&2
+   exit 1
+}
+#savechanges()
+#
+rmsbdir()
+{
+if [ ! -e "$1" ]; then
+#   echo ""
+   echo "Erase module directory created by sb2dir"
+   echo "Usage: $0 rmsbdir [source_directory.sb]"
+   exit 1
+fi
+if [ ! -d "$1" ]; then
+   echo "Directory does not exist: $2" >&2
+   exit
+fi
+umount "$1" 2>/dev/null
+rm -Rf "$1"
+echo "Deleted ""$1"" successfully"
+}
+dir2sb()
+{
+usage()
+{
+#   echo ""
+   echo "Convert directory to .sb compressed module"
+   echo "Usage: $0 dir2sb [source_directory.sb] [[target_file.sb]]"
+   echo "  If source_directory does not have .sb suffix and it is not 'squashfs-root',"
+   echo "  then the source_directory itself is included in the module and"
+   echo "  then the target_file.sb parameter is required."
+   echo "  If target_file.sb is not specified, the source_directory is erased"
+   echo "  and replaced by the newly generated module file."
+}
+P1="$(readlink -f "$1")"
+P2="$(readlink -f "$2")"
+if [ "$P1" = "$P2" ]; then
+   P2=""
+fi
+SB=$(echo "$P1" | grep -o "[.]sb/*\$")
+if [ "$(echo "$P1" | grep -o "/squashfs-root/*\$")" != "" ]; then
+   SB="true"
+fi
+if [ "$SB" = "" ]; then
+   KEEP="-keep-as-directory"
+   if [ "$P2" = "" ]; then
+      usage
+      exit 1
+   fi
+else
+   KEEP=""
+fi
+if [ ! -d "$P1" ]; then
+   echo "Not a directory: $P1" >&2
+   echo "$P1 = P1; $P2 = P2"
+   exit 2
+fi
+if [ "$P2" = "" ]; then
+   TARGET="$P1".sb
+   while [ -e "$TARGET" ]; do TARGET="$TARGET"x; done
+   mksquashfs "$P1" "$TARGET" -comp xz -b 1024K -always-use-fragments $KEEP || exit 3 #>/dev/null || exit 3
+   umount "$P1" 2>/dev/null
+   rm -Rf "$P1"
+   mv "$TARGET" "$P1"
+else
+   if [ -e "$P2" ]; then
+      echo "Target exists: $P2" >&2
+      exit 4
+   fi
+   mksquashfs "$P1" "$P2" -comp xz -b 1024K -always-use-fragments $KEEP #>/dev/null
+fi
+}
+sb2dir()
+{
+if [ ! -e "$1" ]; then
+   echo 
+   echo "Convert .sb compressed module into directory with the same name"
+   echo "Usage: $0 sb2dir [source_file.sb] [[optional output_directory]]"
+   echo "  If the output_directory is specified, it must exist"
+   echo "  If the output_directory is not specified, the name source_file.sb"
+   echo "  is used and the directory is overmounted with tmpfs"
+   exit 1
+fi
+if [ ! -r "$1" ]; then
+   echo "File does not exist: $1" >&2
+   exit
+fi
+if [ "$2" = "" ]; then
+   SOURCE="$1".x
+   while [ -e "$SOURCE" ]; do SOURCE="$SOURCE"x; done
+   mv "$1" "$SOURCE" || exit
+   mkdir "$1"
+   mount -t tmpfs tmpfs "$1"
+   unsquashfs -f -dest "$1" "$SOURCE" >/dev/null || exit
+   rm "$SOURCE"
+else
+   if [ ! -d "$2" ]; then
+      echo "Directory does not exist: $2" >&2
+      exit
+   fi
+   unsquashfs -f -dest "$2" "$1" >/dev/null
+fi
+}
+sb()
+{
+if [ "$1" = "rm" ]; then
+   shift
+   rmsbdir "$@"
+   exit $?
+fi 
+if [ "$1" = "rmdir" ]; then
+   shift
+   rmsbdir "$@"
+   exit $?
+fi 
+if [ "$1" = "conv" ]; then
+   shift
+fi
+if [ ! -r "$2" ]; then
+   echo File not found "$2"
+   exit 1
+fi
+if [ -d "$2" ]; then
+   dir2sb "$@"
+   exit $?
+fi
+sb2dir "$@"
+}
+genslaxiso()
+{
+CWD=$(pwd)
+SOURCE=/run/initramfs/memory
+TEMP=/tmp/slaxiso.$$
+REGEX='^$'
+
+if [ "$1" = "-e" ]; then
+   REGEX="$2"
+   shift
+   shift
+fi
+TARGET="$(readlink -f "$1")"
+
+if [ "$TARGET" = "" ]; then
+   echo ""
+   echo "Generate Slax ISO image, adding specified modules"
+   echo "Regular expression is used to exclude any existing path or file with -e regex"
+   echo ""
+   echo "Usage:"
+   echo "        $0 genslaxiso [[ -e regex ]] target.iso [[module.sb]] [[module.sb]] ..."
+   echo ""
+   echo "Examples:"
+   echo "        # to create Slax iso without chromium.sb module:"
+   echo "        $0 -e 'chromium' slax_without_chromium.iso"
+   echo ""
+   echo "        # to create Slax text-mode core only:"
+   echo "        $0 -e 'firmware|xorg|desktop|apps|chromium' slax_textmode.iso"
+   exit 1
+fi
+if [ -e "$SOURCE/data/slax/boot/isolinux.bin" ]; then
+   SLAX=$SOURCE/data/slax
+fi
+if [ -e "$SOURCE/iso/slax/boot/isolinux.bin" ]; then
+   SLAX=$SOURCE/iso/slax
+fi
+if [ -e "$SOURCE/toram/boot/isolinux.bin" ]; then
+   SLAX=$SOURCE/toram
+fi
+if [ "$SLAX" = "" ]; then
+   echo "Cannot find boot/isolinux.bin in Slax data" >&2
+   exit 2
+fi
+GRAFT=\
+$(
+  cd "$SLAX"
+  find . -type f | sed -r "s:^[.]/::" | egrep -v "^boot/isolinux.(bin|boot)$" | egrep -v "^changes/" | egrep -v "$REGEX" | while read LINE; do
+     echo "slax/$LINE=$SLAX/$LINE"
+  done
+)
+# add all modules
+while [ "$2" != "" ]; do
+   if [ ! -e "$2" ]; then
+      echo "File does not exist: $2"
+      exit 3
+   fi
+   BAS="$(basename "$2")"
+   MOD="$(readlink -f "$2")"
+   GRAFT="$GRAFT slax/modules/$BAS=$MOD"
+   shift
+done
+(
+   mkdir -p $TEMP/slax/{boot,modules,changes}
+   cp "$SLAX/boot/isolinux.bin" "$TEMP/slax/boot"
+   cd "$TEMP"
+   genisoimage -o - -quiet -v -J -R -D -A slax -V slax \
+   -no-emul-boot -boot-info-table -boot-load-size 4 -input-charset utf-8 \
+   -b slax/boot/isolinux.bin -c slax/boot/isolinux.boot \
+   -graft-points $GRAFT \
+   . \
+) > "$TARGET"
+rm -Rf $TEMP
+}
+print_branches()
+{
+   local SI BUNDLE LOOP CWD
+   SI="/sys/fs/aufs/$(cat /proc/mounts | grep 'aufs / aufs' | egrep -o 'si=([^,) ]+)' | tr = _)"
+   CWD="$(pwd)"
+   cd "$SI"
+   ls -v1 | grep -v xi_path | egrep 'br[0-9]+' | xargs cat | grep memory/bundles | rev | cut -b 4- | rev | while read BUNDLE; do
+      if mountpoint -q "$BUNDLE"; then
+         LOOP=$(cat /proc/mounts | fgrep " $BUNDLE squashfs" | cut -d " " -f 1)
+         echo -n "$BUNDLE"
+         echo -ne "\t"
+         losetup $LOOP | sed -r "s:.*[(]|[)].*::g"
+      fi
+   done | tac
+   cd "$CWD"
+}
+# Activate Slax Bundle
+# $1 = file to activate
+#
+activate()
+{
+   local SB TGT BAS
+   SB="$(readlink -f "$1")"
+   BAS="$(basename "$SB")"
+   # check if file exists
+   if [ ! -r "$SB" ]; then
+      usage
+      die "file not found $SB"
+   fi
+   # check if the file is part of aufs union, if yes we need to copy it outside
+   if df "$SB" | cut -d " " -f 1 | grep -q aufs; then
+      TGT="$RAMSTORE"
+      mkdir -p "$TGT"
+      if [ -r $TGT/$BAS ]; then die "File exists: $TGT/$BAS"; fi
+      cp -n "$SB" "$TGT/$BAS"
+      if [ $? -ne 0 ]; then die "Error copying file to $TGT/$BAS. Not enough free RAM or disk space?"; fi
+      SB="$TGT/$BAS"
+   fi
+   # check if this particular file is already activated
+   if print_branches | cut -f 2 | fgrep -q "$SB"; then
+      exit
+   fi
+   # mount remount,add
+   TGT="$LIVE/bundles/$BAS"
+   mkdir -p "$TGT"
+   mount -n -o loop,ro "$SB" "$TGT"
+   if [ $? -ne 0 ]; then
+      die "Error mounting $SB to $TGT, perhaps corrupted download"
+   fi
+   # add current branch to aufs union
+   mount -t aufs -o remount,add:1:"$TGT" aufs /
+   if [ $? -ne 0 ]; then
+      umount "$TGT"
+      rmdir "$TGT"
+      die "Error attaching bundle filesystem to Slax"
+   fi
+   echo "Slax Bundle activated: $BAS"
+}
+# Deactivate Slax bundle of the given name
+# $1 = path to bundle file, or its name
+#
+deactivate()
+{
+   local BUNDLES SB MATCH LOOP LOOPFILE
+   BUNDLES=$LIVE/bundles
+   MODULES=$LIVE/modules
+   SB="$(basename "$1")"
+   rmdir "$BUNDLES/$SB" 2>/dev/null    # this fails unless the dir is
+   rmdir "$BUNDLES/$SB.sb" 2>/dev/null # forgotten there empty. It's safe this way
+   if [ ! -d "$BUNDLES/$SB" ]; then
+      # we don't have real filename match, lets try to add .sb extension
+      if [ ! -d "$BUNDLES/$SB.sb" ]; then
+         # no, still no match. Lets use some guesswork
+         SB=$(print_branches | cut -f 2 | egrep -o "/[0-9]+-$SB.sb\$" | tail -n 1 | xargs -r basename)
+      else
+         SB="$SB.sb"
+      fi
+   fi
+   if [ "$SB" = "" -o ! -d "$BUNDLES/$SB" ]; then
+      die "can't find active slax bundle $1"
+   fi
+   echo "Attempting to deactivate Slax bundle $SB..."
+   mount -t aufs -o remount,verbose,del:"$BUNDLES/$SB" aufs / 2>/dev/null
+   if [ $? -ne 0 ]; then
+      die "Unable to deactivate Slax Bundle - still in use. See dmesg for more."
+   fi
+   # remember what loop device was the bundle mounted to, it may be needed later
+   LOOP="$(cat /proc/mounts | fgrep " $BUNDLES/$SB " | cut -d " " -f 1)"
+   LOOPFILE="$(losetup "$LOOP" | cut -d " " -f 3 | sed -r 's:^.|.$::g')"
+   umount "$BUNDLES/$SB" 2>/dev/null
+   if [ $? -ne 0 ]; then
+      die "Unable to umount Slax bundle loop-mount $BUNDLES/$SB"
+   fi
+   rmdir "$BUNDLES/$SB"
+   # free the loop device manually since umount fails to do that if the bundle was activated on boot
+   losetup -d "$LOOP" 2>/dev/null
+   if echo "$LOOPFILE" | grep -q $RAMSTORE; then
+      rm -f $LOOPFILE
+   fi
+   echo "Slax Bundle deactivated: $SB"
+}
+usage()
+{
+   echo "Usage: $0 [ activate | deactivate | list ] [ file.sb ]" >&2
+   echo "Other commands: $0 [ dir2sb | genslaxiso | rmsbdir | sb | sb2dir | savechanges]" >&2
+   echo "Use $0 Command_Name to know more about the other commands along with their usage" >&2
+   if [ "$1" != "" ]; then
+      echo "$1" >&2
+   fi
+}
+if [ "$1" = "" ]; then
+   usage; die
+fi
+if [ "$1" = "activate" ]; then
+   shift; activate "$@"; exit
+fi
+if [ "$1" = "deactivate" ]; then
+   shift; deactivate "$@"; exit
+fi
+if [ "$1" = "list" ]; then
+   print_branches; exit
+fi
+if [ "$1" = "savechanges" ]; then
+   shift; savechanges "$@"; exit
+fi
+if [ "$1" = "sb2dir" ]; then
+   shift; sb2dir "$@"; exit
+fi
+if [ "$1" = "dir2sb" ]; then
+   shift; dir2sb "$@"; exit
+fi
+if [ "$1" = "genslaxiso" ]; then
+   shift; genslaxiso "$@"; exit
+fi
+if [ "$1" = "sb" ]; then
+   shift; sb "$@"; exit
+fi
+if [ "$1" = "rmsbdir" ]; then
+   shift; rmsbdir "$@"; exit
+fi
+if [ "$1" = "exit" ]; then  exit; fi
+  echo "The command ""$1"" doesn't exist"
+  echo "Hope you find the following info useful: "
+  usage
+  echo "Please enter a command(or type exit to exit): " && read command
+  exec $0 $command

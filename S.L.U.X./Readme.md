@@ -17,6 +17,6 @@
 <span style="color:#BFBFBF">├───</span> <i>02-xorg.sb</i><br>
 <span style="color:#BFBFBF">├───</span> <i>03-desktop.sb</i><br>
 <span style="color:#BFBFBF">├───</span> <i>04-chromium.sb</i><br>
-<span style="color:#BFBFBF">└───</span> <i>...</i>
+<span style="color:#BFBFBF">└───</span> <i>docs</i>
 <span style=
 </div>

@@ -1,8 +1,8 @@
 #!/bin/bash
 # Originally made for Slax management and control script
 # Original Author: Tomas M <http://www.slax.org/>
-# Now this edited is being used as S.L.U.X. management and control script
-# Edited by: Tree T <https://www.tree-t.github.io/S.L.U.X./>
+# Now this edited is being used as S.L.U.X management and control script
+# Edited by: Tree T <https://www.tree-t.github.io/S.L.U.X/>
 # Functions:
 # activate
 # deactivate

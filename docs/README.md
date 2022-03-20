@@ -1,4 +1,4 @@
-# S.L.U.X. - <h1>`Small Live Unbloated linuX`</h1>
+# S.L.U.X. - `Small Live Unbloated linuX`
 # Introduction
 S.L.U.X. is a small distro derived from source code of S.L.A.X.(based on debian).
 

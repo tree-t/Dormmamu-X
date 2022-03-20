@@ -366,5 +366,5 @@ if [ "$1" = "exit" ]; then  exit; fi
   echo "The command ""$1"" doesn't exist"
   echo "Hope you find the following info useful: "
   usage
-  echo "Please enter a command(or type exit to exit): " && read command
+  echo -n "Please enter a command(or type exit to exit): " && read command
   exec $0 $command

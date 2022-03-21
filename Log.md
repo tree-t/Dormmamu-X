@@ -27,4 +27,9 @@ No progress.
 # Day 11 (18/3/2022)
 1. Developed /usr/bin/slux, which will be tested on Day 12
 # Day 12 (19/3/2022)
-Started to rebuild S.L.U.X. as I found that its source code files were deleted in a move command. (╥﹏╥)
+1. Started to rebuild S.L.U.X. as I found that its source code files were deleted in a move command. (╥﹏╥)
+# Day 13 (20/3/2022)
+No progress.
+# Day 14 (21/3/2022)
+1. Uploaded a preview of S.L.U.X's login screen(in Discussions)
+2. Created a TODO file.

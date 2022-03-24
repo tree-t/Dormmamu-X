@@ -31,7 +31,7 @@ No progress.
 # Day 13 (20/3/2022)
 No progress.
 # Day 14 (21/3/2022)
-1. Uploaded a preview of S.L.U.X's login screen(in Discussions)
+1. Uploaded a preview of S.L.U.X's login screen(in Discussions[now announcements])
 2. Created a TODO file.
 # Day 15 (22/3/2022)
 No progress.

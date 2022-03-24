@@ -33,3 +33,9 @@ No progress.
 # Day 14 (21/3/2022)
 1. Uploaded a preview of S.L.U.X's login screen(in Discussions)
 2. Created a TODO file.
+# Day 15 (22/3/2022)
+No progress.
+# Day 16 (23/3/2022)
+1. Re-created a debootstrapped base system bundle(module(
+# Day 17 (24/3/2022)
+No progress.

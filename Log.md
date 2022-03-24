@@ -21,7 +21,7 @@
 1. Achievement! SLUX beta - core(no ui) version created(although it is still called alpha, as exept me no one has tested it).
 2. Although the Graphical(ui) version can take one or two more days....
 3. Logging failure solved!
-4. Cancelled uploading slux-beta.iso, as wpa_supplicant and my other apps are still missing in it. :(
+4. Cancelled uploading slux-beta.iso, as wpa_supplicant and many other apps are still missing in it. :(
 # Day 7 (14/3/2022) - Day 10 (17/3/2022)
 No progress.
 # Day 11 (18/3/2022)

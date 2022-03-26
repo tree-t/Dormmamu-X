@@ -9,6 +9,8 @@ For example: if lets say 'add sudo' was added on 21/3/2022, but on 22/3/2022, an
 Once an object/goal is completed, it will be manually hashtaged.Example:(#2. object)
 # List 1(as of 21/3/2022)
 #1. Add sudo
+
 #2. Add the apps specified in [SLAX/debian11/install](https://www.github.com/tomas-m/linux-live/Slax/debian11/build)
+
 (22/3/22)
 #3. Add proot binary file

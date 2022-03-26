@@ -37,5 +37,8 @@ No progress.
 No progress.
 # Day 16 (23/3/2022)
 1. Re-created a debootstrapped base system bundle(module(
-# Day 17 (24/3/2022)
+# Day 17 (24/3/2022) - Day 18 (25/3/2022)
 No progress.
+# Day 19 (25/3/2022)
+
+1. Re-created 001-debootstrap.sb with changes mentioned in [TODO.md](https://github.com/tree-t/S.L.U.X/TODO.md)

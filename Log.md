@@ -43,5 +43,5 @@ No progress.
 
 1. Re-created 001-debootstrap.sb with changes mentioned in [TODO.md](https://github.com/tree-t/S.L.U.X/blob/main/TODO.md)
 
-# Day 20 (26/3/2022) - Day 22 (28/3/2022)
+# Day 20 (26/3/2022) - Day 23 (29/3/2022)
 No progress.

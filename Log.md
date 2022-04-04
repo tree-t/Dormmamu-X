@@ -43,5 +43,9 @@ No progress.
 
 1. Re-created 001-debootstrap.sb with changes mentioned in [TODO.md](https://github.com/tree-t/S.L.U.X/blob/main/TODO.md)
 
-# Day 20 (26/3/2022) - Day 26 (1/4/2022)
+# Day 20 (26/3/2022) - Day 27 (2/4/2022)
 No progress.
+
+# Day 21 (3/4/2022)
+1. Updated to debian 11.3
+2. Did some tweaks to nano(nanorc) and .bashrc

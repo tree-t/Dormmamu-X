@@ -50,5 +50,5 @@ No progress.
 1. Updated to debian 11.3
 2. Did some tweaks to nano(nanorc) and .bashrc
 
-# Day 22 (4/4/2022) - Day 25 (7/4/2022)
+# Day 22 (4/4/2022) - Day 28 (10/4/2022)
 No Progress.

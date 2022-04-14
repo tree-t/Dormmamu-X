@@ -50,5 +50,8 @@ No progress.
 1. Updated to debian 11.3
 2. Did some tweaks to nano(nanorc) and .bashrc
 
-# Day 22 (4/4/2022) - Day 28 (10/4/2022)
+# Day 22 (4/4/2022) - Day 31 (13/4/2022)
 No Progress.
+
+# Day 32 (14/4/2022)
+1. Changed the look of (S.L.U.X's Home Page)[https://www.tree-t.github.io/S.L.U.X].

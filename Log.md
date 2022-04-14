@@ -54,4 +54,4 @@ No progress.
 No Progress.
 
 # Day 32 (14/4/2022)
-1. Changed the look of (S.L.U.X's Home Page)[https://www.tree-t.github.io/S.L.U.X].
+1. Changed the look of [S.L.U.X's Home Page](https://www.tree-t.github.io/S.L.U.X).

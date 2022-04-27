@@ -1,3 +1,4 @@
+(Aborted)
  S.L.U.X - `Small Live Unbloated linuX`
 # Introduction
 S.L.U.X is a small distro derived from debian debootstrapped.

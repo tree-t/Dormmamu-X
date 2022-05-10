@@ -60,4 +60,4 @@ No Progress.
 No Progress.
 
 # day 58 (10/5/2022)
-1. addedd more source files.
+1. added some source files.

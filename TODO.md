@@ -15,6 +15,9 @@ Once an object/goal is completed, it will be manually hashtaged.Example:(#2. obj
   (22/3/22)
 
 - #3. Add proot binary file
+
   (10/5/2022)
-- 4. Use awesome for X
-- 5. Customize awesome
+  
+-  4. Use awesome for X
+
+-  5. Customize awesome

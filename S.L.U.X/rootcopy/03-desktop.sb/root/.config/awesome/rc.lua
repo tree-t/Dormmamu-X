@@ -52,7 +52,7 @@ end
 
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
    beautiful.init("/root/.config/awesome/sky/theme.lua")
-   beautiful.get().wallpaper=("/root/.config/awesome/wall.jpg")
+   beautiful.get().wallpaper=("/root/.config/awesome/wallpaper.png")
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"

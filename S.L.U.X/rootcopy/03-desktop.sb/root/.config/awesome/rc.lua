@@ -51,7 +51,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 
 -- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-   beautiful.init("/root/.config/awesome/sky/theme.lua")
+   beautiful.init("/root/.config/awesome/zenburn/theme.lua")
    beautiful.get().wallpaper=("/root/.config/awesome/wallpaper.png")
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -80,9 +80,9 @@ awful.layout.layouts = {
     awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
-   -- awful.layout.suit.corner.ne,
-   -- awful.layout.suit.corner.sw,
-   -- awful.layout.suit.corner.se,
+    awful.layout.suit.corner.ne,--
+    awful.layout.suit.corner.sw,--
+    awful.layout.suit.corner.se,--
 }
 -- }}}
 
@@ -110,10 +110,7 @@ else
         items = {
                   menu_awesome,
                   { "Debian", debian.menu.Debian_menu.Debian },
---		 mymainmenu = awful.menu({ 
---					items = { 
-						{"applications", appmenu.Appmenu },
---					})
+		  {"applications", appmenu.Appmenu },
                   menu_terminal,
                 }
     })
@@ -227,7 +224,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create the wibox
 --    s.mywibox = awful.wibar({ position = "top", screen = s })
-    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal .. "55" })
+    s.mywibox = awful.wibar({ position = "bottom", screen = s, bg = beautiful.bg_normal .. "55" })
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,

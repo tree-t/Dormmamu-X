@@ -67,3 +67,6 @@ No Progress.
 
 # Day 61 (13/5/2022)
 1. Chose awesome as wm and uploaded some source 
+
+# Day 62 (14/5/2022)
+1. Uploaded some source 

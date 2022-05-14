@@ -57,7 +57,7 @@ end
 terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
-xlunch = "/usr/bin/xlunch"
+xlunchsh = "/usr/bin/xlunch.sh"
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
 -- If you do not like this or do not have such a key,
@@ -117,14 +117,14 @@ else
 end
 	mymainmenu = awful.menu({
 		menu_awesome,
-		{"Xlunch", xlunch},
+		{"Xlunch", xlunchsh},
 		{"Applications", appmenu.Appmenu},
 	})
 mylauncher = awful.widget.launcher({
 --				     image = beautiful.awesome_icon,
 				     image = "/root/.config/awesome/xlunch.png",
                                  --    menu = mymainmenu 
-                                     command = {"xlunch",xlunch},
+                                     command = xlunchsh,
 				  })
 -- Menubar configuration
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
@@ -265,6 +265,12 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
+    awful.key({ "Control", },"Escape",
+	function () 
+	    awful.util.spawn(xlunchsh) end,
+	{description = "Show a beautiful menu", group ="Custom Key Bindings"}
+     ),
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -324,7 +330,6 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
-
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Note: This file a modified version of fbappselect(from S.L.A.X 9.x) (written by Tomas-M)
+# Original Writer: Tomas Matejicek
+# Editor : Tree-t
+
 COMMAND=$(
   xlunch_genquick 64 --desktop | \
   xlunch --border 7% --sideborder 10% --borderratio 100 --sideborderratio 50 \

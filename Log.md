@@ -76,3 +76,6 @@ No Progress.
 
 # Day 64 (16/5/2022)
 1. Added some source files.
+
+# Day 65 (17/5/2022) - Day 69 (21/5/2022)
+No Progress.

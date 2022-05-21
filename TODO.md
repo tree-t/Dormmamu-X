@@ -18,6 +18,7 @@ Once an object/goal is completed, it will be manually hashtaged.Example:(#2. obj
 
   (10/5/2022)
   
--  4. Use awesome for X
+-  #4. Use awesome for X
 
 -  5. Customize awesome
+-  6. Use Plymouth for a nice-looking startup

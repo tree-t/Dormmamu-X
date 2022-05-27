@@ -1,6 +1,6 @@
 ---
 name: Report the Violation of any license.
-about: Report if any license was reported by us.
+about: Report if any license was violated by us.
 title: "[ Super Important !!! ]"
 labels: Immediate response needed, License issue !
 assignees: ''

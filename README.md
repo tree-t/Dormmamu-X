@@ -1,5 +1,5 @@
 # (Aborted)
-# Gantu
+# Gantu OS
 
 # Introduction
 Gantu is a small distro derived from debian (debootstrapped).

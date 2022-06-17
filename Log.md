@@ -79,3 +79,6 @@ No Progress.
 
 # Day 65 (17/5/2022) - Day 95 (16/6/2022)
 No Progress.
+
+# Day 96 (17/6/2022)
+1. Renamed S.L.U.X to Gantu OS

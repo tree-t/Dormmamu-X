@@ -6,7 +6,7 @@
 </head>
 <body>
 <p style="color:#BFBFBF;line-height:17.0pt;font-family:monospace;">
-<b>S.L.U.X</b></span><br>
+<b><i>Gantu</b></span></i><br>
 +---- <b><span style="color:#C0504D">boot</span></b><br>
 |&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>isolinux.bin</i><br>
 |&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>syslinux.cfg</i><br>

@@ -3,8 +3,9 @@
 	<head>
 		<title> Gantu Dir Tree </title>
 		<center>
-			<h1 style="background-color:Yellow;color:Orange"><span style="color:Green">Welcome</span> to the <span style="color:DodgerBlue">source 	code</span> of <span style="color:#C0505D"><b>Gantu</b></span><span style="color:Red">!</span><br>
-			Let me <span style="background-color:LightGreen;color:Black">help you </span>with the dir tree.</h1><br>
+			<h1 style="background-color:Yellow;color:Orange"><span style="color:Green">Welcome</span> to the <span style="color:DodgerBlue">source 	code</span> of <span style="color:#C0505D"><b>Gantu</b></span><span style="color:Red">!</span>
+
+			Let me <span style="background-color:LightGreen;color:Black">help you </span>with the dir tree.</h1>
 		</center>
 		</head>
 	<body>

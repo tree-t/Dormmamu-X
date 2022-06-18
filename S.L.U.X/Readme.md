@@ -1,22 +1,25 @@
-# Welcome to the source code of SLUX!
-# Let me help you with the dir tree
-<center>
-
-<p> 
-<div style="line-height:17.0pt;font-family:monospace;">
-<span style="color:#BFBFBF"><b>S.L.U.X</b></span><br>
-<span style="color:#BFBFBF">├───</span> <b><span style="color:#C0504D">boot</span></b><br>
-<span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;├───</span> <i>isolinux.bin</i><br>
-<span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;├───</span> <i>syslinux.cfg</i><br>
-<span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;├───</span> <i>initrfs.img </i><br>
-<span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;├───</span> <i>vmlinuz</i><br>
-<span style="color:#BFBFBF">│&nbsp;&nbsp;&nbsp;&nbsp;└───</span> <i>...</i><br>
-<span style="color:#BFBFBF">├───</span> <b><span style="color:#C0504D">changes</span></b><br>
-<span style="color:#BFBFBF">├───</span> <b><span style="color:#C0504D">rootcopy</span></b><br>
-<span style="color:#BFBFBF">├───</span> <i>01-core.sb</i><br>
-<span style="color:#BFBFBF">├───</span> <i>02-xorg.sb</i><br>
-<span style="color:#BFBFBF">├───</span> <i>03-desktop.sb</i><br>
-<span style="color:#BFBFBF">├───</span> <i>04-chromium.sb</i><br>
-<span style="color:#BFBFBF">└───</span> <i>docs</i>
-<span style=
-</div>
+<!DOCTYPE html >
+<html>
+<head>
+<h1> Welcome to the source code of Gantu! <br>
+ Let me help you with the dir tree</h1><br>
+</head>
+<body>
+<p style="color:#BFBFBF;line-height:17.0pt;font-family:monospace;">
+<b>S.L.U.X</b></span><br>
++---- <b><span style="color:#C0504D">boot</span></b><br>
+|&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>isolinux.bin</i><br>
+|&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>syslinux.cfg</i><br>
+|&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>initrfs.img </i><br>
+|&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>vmlinuz</i><br>
+|&nbsp;&nbsp;&nbsp;&nbsp;+---- <i>...</i><br>
++---- <b><span style="color:#C0504D">changes</span></b><br>
++---- <b><span style="color:#C0504D">rootcopy</span></b><br>
++---- <i>01-core.sb</i><br>
++---- <i>02-xorg.sb</i><br>
++---- <i>03-desktop.sb</i><br>
++---- <i>04-chromium.sb</i><br>
++---- <i>docs</i>
+</p>
+</body>
+</html>

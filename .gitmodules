@@ -1,3 +1,3 @@
 [submodule "Dormmamu-X-Desktop"]
  path = Dormmomu-X/Desktop 
- url = https://github.com/tree-t/Dormmamu-X-Desktop.git
+ url = git://github.com/tree-t/Dormmamu-X-Desktop.git

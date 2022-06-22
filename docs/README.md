@@ -1,4 +1,3 @@
-# (Aborted)<br>
 # Dormmamu-X
 ## Introduction
 Dormmamu-X is a small distro derived from debian debootstrapped.

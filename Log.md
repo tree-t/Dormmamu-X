@@ -1,11 +1,11 @@
-# Day 1 (08/03/2022):
-
+<details>
+#<summary> Day 1 (08/03/2022):</summary>
 
 1. Created this repo 
 2. Retrieved previous work on SLUX
 3. Selected a logo for SLUX
 4. Tested SLUX-TEST.ISO(just to find, that it didn't have an init).
-
+</details>
 
 # Day 2 (09/03/2022):
 1. Tried different methods and found that dumb-init can create a file /usr/sbin/init (needed to boot the system)

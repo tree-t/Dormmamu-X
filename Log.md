@@ -1,5 +1,5 @@
 <details>
-<summary> # Day 1 (08/03/2022):</summary>
+# <summary> Day 1 (08/03/2022):</summary>
 
 1. Created this repo 
 2. Retrieved previous work on SLUX

@@ -1,5 +1,4 @@
-# (Aborted)
-#  Dormmamu-X stands for Dormmamu-linuX
+# Dormmamu-X stands for Dormmamu-linuX
 
 # Introduction
 Dormmamu-X is a small distro derived from debian (debootstrapped).

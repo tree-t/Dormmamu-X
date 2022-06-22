@@ -85,7 +85,10 @@ No Progress.
 
 # Day 97 (18/6/2022) - Day 100 (21/6/2022)
 Mostly no progress..
-1. Found a good replacement for Featherpad - (Nedit-ng)[https://github.com/eteran/nedit-ng] ( nedit stands for Nirvana text editor and I think that -ng stands for -nee generation)
-    * Reasons for dumping Featherpad:-
+1. Found a good replacement for Featherpad - [Nedit-ng](https://github.com/eteran/nedit-ng) ( Nedit stands for Nirvana text editor and I think that -ng stands for new generation)
+    * Reasons for dumping Featherpad:
         A. Although Featherpad is super nice, but for Gantu I'll need a lightweight text editor.
 2. Renamed Gantu to Dormmamu
+
+# Day 98 (22/6/2022)
+No progress..

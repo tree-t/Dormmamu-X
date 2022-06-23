@@ -8,7 +8,8 @@
 </details>
 
 <details>
-<summary> # Day 2 (09/03/2022):<summary>
+
+#<summary> Day 2 (09/03/2022):<summary>
 
 1. Tried different methods and found that dumb-init can create a file /usr/sbin/init (needed to boot the system)
 </details>
